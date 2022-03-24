@@ -64,12 +64,12 @@
       (targets '("/dev/sda"))
       (keyboard-layout keyboard-layout)))
   (swap-devices
-    (list (uuid "334f93d2-dc62-4529-8491-2d156f1d9ed5")))
+    (list (uuid "")))
   (file-systems
     (cons* (file-system
              (mount-point "/")
              (device
-               (uuid "5c9e25d1-058b-4a1d-a840-97d652af3862"
+               (uuid ""
                      'ext4))
              (type "ext4"))
            %base-file-systems)))
