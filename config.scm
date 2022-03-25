@@ -50,6 +50,7 @@
   (services
     (append
       (list (service gnome-desktop-service-type)
+	    (bluetooth-service: #:auto-enable? #t)
             (set-xorg-configuration
               (xorg-configuration
                 (keyboard-layout keyboard-layout))))
