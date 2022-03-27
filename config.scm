@@ -21,10 +21,6 @@
                   %default-authorized-guix-keys)))))
   )
 
-(define %my-packages
-  '("ungoogled-chromium"
-  ))
-
 (operating-system
   (locale "cs_CZ.utf8")
   (timezone "Europe/Prague")
@@ -39,25 +35,32 @@
                   (group "users")
                   (home-directory "/home/jan")
                   (supplementary-groups
-                    '("wheel" "netdev" "audio" "video")))
+                    '("wheel" "netdev" "audio" "video" "lp")))
                 %base-user-accounts))
   (packages
     (append
       (list (specification->package "nss-certs"))
       (list (specification->package "font-liberation"))
+      (list (specification->package "flatpak"))
+      (list (specification->package "vim"))
+      (list (specification->package "git"))
       %base-packages
       ))
   (services
     (append
       (list (service gnome-desktop-service-type)
-	    (bluetooth-service: #:auto-enable? #t)
+	    (bluetooth-service #:auto-enable? #f)
             (set-xorg-configuration
               (xorg-configuration
-                (keyboard-layout keyboard-layout))))
-      (list (service libvirt-service-type
-         (libvirt-configuration
-          (unix-sock-group "libvirt")
-          (tls-port "16555"))))
+                (keyboard-layout keyboard-layout)))
+            (service libvirt-service-type
+              (libvirt-configuration
+                (unix-sock-group "libvirt")
+                (tls-port "16555")))
+            (simple-service 'my-flatpak-env-conf session-environment-service-type
+              '(("GUIX_LOCPATH" . "$HOME/.guix-profile/lib/locale")
+                ("XDG_DATA_DIRS" . "$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share"))))
+
       %my-services))
   (bootloader
     (bootloader-configuration
@@ -65,12 +68,12 @@
       (targets '("/dev/sda"))
       (keyboard-layout keyboard-layout)))
   (swap-devices
-    (list (uuid "")))
+    (list (uuid "13b8d54f-c974-4f44-9656-8d31208f9a94")))
   (file-systems
     (cons* (file-system
              (mount-point "/")
              (device
-               (uuid ""
+               (uuid "fb3dcab3-013a-43ad-b18a-3f04cbaed3ee"
                      'ext4))
              (type "ext4"))
            %base-file-systems)))
