@@ -12,4 +12,7 @@
         "neofetch"
         "gnome-tweaks"
         "glibc-locales"
-        "vim"))
+        "vim"
+        "mpv"
+        "yt-dlp"
+        "file-roller"))
