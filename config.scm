@@ -56,11 +56,7 @@
             (service libvirt-service-type
               (libvirt-configuration
                 (unix-sock-group "libvirt")
-                (tls-port "16555")))
-            (simple-service 'my-flatpak-env-conf session-environment-service-type
-              '(("GUIX_LOCPATH" . "$HOME/.guix-profile/lib/locale")
-                ("XDG_DATA_DIRS" . "$XDG_DATA_DIRS:$HOME/.local/share/flatpak/exports/share"))))
-
+                (tls-port "16555"))))
       %my-services))
   (bootloader
     (bootloader-configuration
