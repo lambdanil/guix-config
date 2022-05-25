@@ -39,11 +39,8 @@
                 %base-user-accounts))
   (packages
     (append
-      (list (specification->package "nss-certs"))
-      (list (specification->package "font-liberation"))
-      (list (specification->package "flatpak"))
-      (list (specification->package "vim"))
-      (list (specification->package "git"))
+      (list (specification->package "nss-certs") (specification->package "font-liberation") (specification->package "flatpak")
+	    (specification->package "vim") (specification->package "git"))
       %base-packages
       ))
   (services
