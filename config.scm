@@ -10,6 +10,7 @@
 (use-service-modules nix desktop networking ssh xorg)
 (use-package-modules package-management)
 
+;; Enable nonguix substitutes
 (define %my-services
   (modify-services %desktop-services
                    (guix-service-type config => (guix-configuration
