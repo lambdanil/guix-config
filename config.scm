@@ -57,8 +57,8 @@
          (service libvirt-service-type
                   (libvirt-configuration
                    (unix-sock-group "libvirt")
-                   (tls-port "16555"))))
-   (list (service nix-service-type))
+                   (tls-port "16555")))
+         (service nix-service-type))
    %my-services))
  (bootloader
   (bootloader-configuration
