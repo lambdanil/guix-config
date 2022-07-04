@@ -25,7 +25,7 @@
  (locale "cs_CZ.utf8")
  (timezone "Europe/Prague")
  (keyboard-layout (keyboard-layout "cz"))
- (host-name "eternal")
+ (host-name "eternity")
  (kernel linux)
  (initrd microcode-initrd)
  (firmware (list linux-firmware))
@@ -45,6 +45,7 @@
          (specification->package "vim")
          (specification->package "nix")
          (specification->package "curl")
+         (specification->package "virt-manager")
          (specification->package "git"))
    %base-packages))
  (services
