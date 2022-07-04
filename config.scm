@@ -46,6 +46,7 @@
          (specification->package "nix")
          (specification->package "curl")
          (specification->package "virt-manager")
+         (specification->package "podman")
          (specification->package "git"))
    %base-packages))
  (services
