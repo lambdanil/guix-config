@@ -7,7 +7,7 @@
              (gnu services virtualization)
              (gnu packages fonts)
              (guix packages))
-(use-service-modules desktop networking ssh xorg)
+(use-service-modules nix desktop networking ssh xorg)
 (use-package-modules package-management)
 
 (define %my-services
