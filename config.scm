@@ -2,13 +2,14 @@
 ;; by the graphical installer.
 
 (use-modules (gnu)
+             (gnu services)
              (nongnu packages linux)
              (nongnu system linux-initrd)
              (gnu services virtualization)
              (gnu packages fonts)
              (guix packages))
-(use-service-modules nix desktop networking ssh xorg)
-(use-package-modules package-management)
+(use-service-modules linux nix desktop networking ssh xorg)
+(use-package-modules linux package-management)
 
 ;; Enable nonguix substitutes
 (define %my-services
