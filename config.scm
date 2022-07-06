@@ -61,7 +61,11 @@
                   (libvirt-configuration
                    (unix-sock-group "libvirt")
                    (tls-port "16555")))
-         (service nix-service-type))
+         (service nix-service-type)
+         (service zram-device-service-type
+                  (zram-device-configuration
+                   (size "8172M")
+                   (compression-algorithm 'zstd))))
    %my-services))
  (bootloader
   (bootloader-configuration
