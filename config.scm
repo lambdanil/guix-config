@@ -72,10 +72,6 @@
    (bootloader grub-bootloader)
    (targets '("/dev/sda"))
    (keyboard-layout keyboard-layout)))
- (swap-devices
-  (list
-   (swap-space
-    (target (uuid "13b8d54f-c974-4f44-9656-8d31208f9a94")))))
  (file-systems
   (cons* (file-system
           (mount-point "/")
