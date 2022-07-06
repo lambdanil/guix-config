@@ -1,5 +1,4 @@
-;; This is an operating system configuration generated
-;; by the graphical installer.
+;; https://github.com/CuBeRJAN/guix-config
 
 (use-modules (gnu)
              (gnu services)
