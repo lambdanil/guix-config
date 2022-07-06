@@ -47,6 +47,7 @@
          (specification->package "font-abbatis-cantarell")
          (specification->package "flatpak")
          (specification->package "vim")
+         (specification->package "neofetch")
          (specification->package "nix")
          (specification->package "curl")
          (specification->package "gnome-tweaks")
