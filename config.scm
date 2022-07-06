@@ -43,6 +43,8 @@
   (append
    (list (specification->package "nss-certs")
          (specification->package "font-liberation")
+         (specification->package "font-dejavu")
+         (specification->package "font-abbatis-cantarell")
          (specification->package "flatpak")
          (specification->package "vim")
          (specification->package "nix")
