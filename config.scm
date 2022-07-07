@@ -40,25 +40,27 @@
                %base-user-accounts))
  (packages
   (append
-   (list (specification->package "nss-certs")
-         (specification->package "font-liberation")
-         (specification->package "font-dejavu")
-         (specification->package "font-abbatis-cantarell")
-         (specification->package "flatpak")
-         (specification->package "vim")
-         (specification->package "neofetch")
-         (specification->package "crawl")
-         (specification->package "crawl-tiles")
-         (specification->package "nethack")
-         (specification->package "nix")
-         (specification->package "curl")
-         (specification->package "gnome-tweaks")
-         (specification->package "icecat")
-         (specification->package "htop")
-         (specification->package "emacs")
-         (specification->package "virt-manager")
-         (specification->package "podman")
-         (specification->package "git"))
+   (map specification->package
+        (list
+         "nss-certs"
+         "font-liberation"
+         "font-dejavu"
+         "font-abbatis-cantarell"
+         "flatpak"
+         "vim"
+         "neofetch"
+         "crawl"
+         "crawl-tiles"
+         "nethack"
+         "nix"
+         "curl"
+         "gnome-tweaks"
+         "icecat"
+         "htop"
+         "emacs"
+         "virt-manager"
+         "podman"
+         "git"))
    %base-packages))
  (services
   (append
