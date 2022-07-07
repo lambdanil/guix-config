@@ -45,7 +45,7 @@
          "nss-certs"
          "font-liberation"
          "font-dejavu"
-         "font-abbatis-cantarell"
+         "font-abattis-cantarell"
          "flatpak"
          "vim"
          "neofetch"
