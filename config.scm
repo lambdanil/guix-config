@@ -56,6 +56,7 @@
          "curl"
          "gnome-tweaks"
          "icecat"
+         "ungoogled-chromium"
          "htop"
          "emacs"
          "virt-manager"
