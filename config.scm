@@ -43,24 +43,7 @@
    (map specification->package
         (list
          "nss-certs"
-         "font-liberation"
-         "font-dejavu"
-         "font-abattis-cantarell"
-         "flatpak"
          "vim"
-         "neofetch"
-         "crawl"
-         "crawl-tiles"
-         "nethack"
-         "nix"
-         "curl"
-         "gnome-tweaks"
-         "icecat"
-         "ungoogled-chromium"
-         "htop"
-         "emacs"
-         "virt-manager"
-         "podman"
          "git"))
    %base-packages))
  (services
