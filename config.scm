@@ -2,10 +2,13 @@
 
 (use-modules (gnu)
              (gnu services)
+	     (gnu services dbus)
              (nongnu packages linux)
              (nongnu system linux-initrd)
              (gnu services virtualization)
+	     (gnu services docker)
              (gnu packages fonts)
+	     (gnu packages networking)
              (guix packages))
 (use-service-modules linux nix desktop networking ssh xorg)
 (use-package-modules linux package-management)
@@ -20,7 +23,10 @@
                                                           %default-substitute-urls))
                                                  (authorized-keys
                                                   (append (list (local-file "./signing-key.pub"))
-                                                          %default-authorized-guix-keys))))))
+                                                          %default-authorized-guix-keys))))
+		   (dbus-root-service-type config =>
+                        (dbus-configuration (inherit config)
+                                 (services (list blueman))))))
 
 (operating-system
  (locale "cs_CZ.utf8")
@@ -43,12 +49,14 @@
    (map specification->package
         (list
          "nss-certs"
+	 "bluez"
+	 "blueman"
          "vim"
          "git"))
    %base-packages))
  (services
   (append
-   (list (service gnome-desktop-service-type)
+   (list (service xfce-desktop-service-type)
          (bluetooth-service #:auto-enable? #f)
          (set-xorg-configuration
           (xorg-configuration
@@ -57,7 +65,7 @@
                   (libvirt-configuration
                    (unix-sock-group "libvirt")
                    (tls-port "16555")))
-         (service nix-service-type)
+	 (service docker-service-type)
          (service zram-device-service-type
                   (zram-device-configuration
                    (size "8172M")
@@ -65,14 +73,26 @@
    %my-services))
  (bootloader
   (bootloader-configuration
-   (bootloader grub-bootloader)
-   (targets '("/dev/sda"))
+   (bootloader grub-efi-bootloader)
+   (targets '("/boot/efi"))
    (keyboard-layout keyboard-layout)))
  (file-systems
   (cons* (file-system
           (mount-point "/")
           (device
-           (uuid "fb3dcab3-013a-43ad-b18a-3f04cbaed3ee"
+           (uuid ""
+                 'ext4))
+          (type "ext4"))
+         (file-system
+          (mount-point "/boot/efi")
+          (device
+           (uuid ""
+                 'fat32))
+          (type "vfat"))
+	 (file-system
+          (mount-point "/mnt/media/jan/external")
+          (device
+           (uuid ""
                  'ext4))
           (type "ext4"))
          %base-file-systems)))
